@@ -17,12 +17,95 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Course.init({
-    title: DataTypes.STRING,
-    duration: DataTypes.INTEGER,
-    description: DataTypes.STRING,
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "Course Title can not be Empty!"
+        },
+        notEmpty: {
+          msg: "Course Title can not be Empty!"
+        },
+        isAlpha: {
+          msg: "Course Title cannot be number!"
+        }
+      }
+    },
+
+
+    duration: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "Duration can not be Empty!"
+        },
+        notEmpty: {
+          msg: "Duration Title can not be Empty!"
+        }, 
+        isNumeric: {
+          msg: "Duration can only be Numbers!"
+        }
+      }
+    },
+
+
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "Description can not be Empty!"
+        },
+        notEmpty: {
+          msg: "Description can not be Empty!"
+        },
+        isAlpha: {
+          msg: "Description must be without number!"
+        }
+      }
+    },
+
+
     CategoryId: DataTypes.INTEGER,
+
     InstructorId: DataTypes.INTEGER,
-    videoUrl: DataTypes.STRING  //added
+
+
+    // {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   validate: {
+    //     notNull: {
+    //       msg: "CategoryId can not be Empty!"
+    //     },
+    //     notEmpty: {
+    //       msg: "CategoryId Title can not be Empty!"
+    //     }, isNumeric: {
+    //       msg: "CategoryId can only be Numbers!"
+    //     }
+    //   }
+    // },
+
+
+    videoUrl: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "Video Url can not be Empty!"
+        },
+        notEmpty: {
+          msg: "Video Url can not be Empty!"
+        }, isUrl: {
+          msg: "Video Url can only be  URL format!"
+        }
+      }
+    },
+    
+
+
   }, {
     sequelize,
     modelName: 'Course',

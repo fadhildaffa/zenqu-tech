@@ -1,10 +1,10 @@
-const { User } = require('../models');
+const { Category, Course, User } = require('../models');
 const bcrypt = require('bcryptjs');
 
 class Controller{
 
-    static home(req, res){
-        res.render("home");
+    static landing(req, res){
+        res.render("landing");
     }
 
     static registerForm(req, res){
@@ -34,7 +34,7 @@ class Controller{
         if(find){
             const isPasswordTrue = bcrypt.compareSync(password, find.password);
             if(isPasswordTrue){
-                res.redirect('/');
+                res.redirect('/home'); //ke class page
             }else{
                 const error = "invalid username/password";
                 res.redirect(`/login?error=${error}`);
@@ -48,6 +48,52 @@ class Controller{
             res.send(error.message);
         }
     }
+
+
+    static async home(req, res){
+        try {
+            const categories = await Category.findAll({
+                include: {
+                    model: Course,
+                    attributes: ["title", "description", "CategoryId"]  
+                }
+            })
+            res.render("home", {categories});
+            // res.json(categories);
+            // console.log(categories)
+        } catch (error) {
+            console.log(error);
+            res.send(error.message);
+        }
+    }
+
+
+    static async coursePage(req, res){
+     try {
+        const {id} = req.params;
+        const course = await Course.findByPk(id);
+        res.render("coursePage", {course});
+        // res.json(course);
+     } catch (error) {
+        console.log(error);
+        res.send(error.message);
+     }   
+    }
+
+
+
+    
+    static async deleteCourse(req, res){
+        try {
+            // console.log(CategoryId, CourseId)
+            await Course.destroy({where: {id: req.params.id}});
+            res.redirect("/home");
+        } catch (error) {
+            console.log(error);
+            res.send(error.message);
+        }
+    }
+
 }
 
 module.exports = Controller;
