@@ -28,6 +28,19 @@
   </nav>
   <br><br>
 
+  <div style="justify-content: center;">
+    <% if(err){   %>
+      <% err.forEach( e => { %>
+        <ul>
+          <li>
+            <p style="color: red;"><%= e %></p>
+          </li>
+        </ul>
+      <% }); %>
+    <% } %>
+    <br><br>
+  </div>
+
   <div class="container">
     <form action="/course/edit/<%= course.id %>" method="post">
       <div class="mb-3">
