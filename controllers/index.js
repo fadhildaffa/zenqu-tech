@@ -55,6 +55,8 @@ class Controller{
 
 
     static async home(req, res){
+        const {CourseTitle, CourseDesc} = req.query;
+
         try {
             const categories = await Category.findAll({
                 include: {
@@ -63,7 +65,7 @@ class Controller{
                 }
             })
            
-            res.render("home", {categories});
+            res.render("home", {categories, CourseTitle, CourseDesc});
         } catch (error) {
             console.log(error);
             res.send(error.message);
@@ -74,23 +76,45 @@ class Controller{
     static async coursePage(req, res){
      try {
         const {id} = req.params;
-        
         const course = await Course.findByPk(id);
         res.render("coursePage", {course});
-        
      } catch (error) {
         console.log(error);
         res.send(error.message);
      }   
     }
 
+    static async editForm(req, res){
+        try {
+            const {id} = req.params;
+            const course = await Course.findByPk(id);
+            res.render("editForm", {course});
+        } catch (error) {
+            console.log(error);
+            res.send(error.message);
+        }
+    }
 
-
+    static async updateForm(req, res){
+        try {
+            const {id} = req.params;
+            const {title, duration, description, CategoryId, InstructorId, videoUrl} = req.body;
+            await Course.update({title, duration, description, CategoryId, InstructorId, videoUrl}, 
+                {where: 
+                    {id: id}
+                });
+            res.redirect("/home");
+        } catch (error) {
+            console.log(error);
+            res.send(error.message);
+        }
+    }
     
     static async deleteCourse(req, res){
         try {
+            const deleted = await Course.findByPk(req.params.id)
             await Course.destroy({where: {id: req.params.id}});
-            res.redirect("/home");
+            res.redirect(`/home?CourseTitle=${deleted.title}&CourseDesc=${deleted.description}`);
         } catch (error) {
             console.log(error);
             res.send(error.message);

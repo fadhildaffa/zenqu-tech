@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Course, {foreignKey: 'InstructorId'});  
       User.belongsToMany(models.Course, {as: 'students',  through: 'UserCourses'});
     }
+
   }
   User.init({
     email: DataTypes.STRING,

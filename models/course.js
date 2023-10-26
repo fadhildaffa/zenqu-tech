@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const helper = require('../helper');
 module.exports = (sequelize, DataTypes) => {
   class Course extends Model {
     /**
@@ -15,6 +16,11 @@ module.exports = (sequelize, DataTypes) => {
       Course.belongsTo(models.User, {as: 'instructor', foreignKey: 'InstructorId'});  //instructor
       Course.belongsToMany(models.User, {as: 'students', through: 'UserCourses'});
     }
+
+    get formatDuration(){
+      return helper.formattedMinutes(this.duration);
+    }
+
   }
   Course.init({
     title: {
@@ -26,9 +32,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         notEmpty: {
           msg: "Course Title can not be Empty!"
-        },
-        isAlpha: {
-          msg: "Course Title cannot be number!"
         }
       }
     },
@@ -60,9 +63,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         notEmpty: {
           msg: "Description can not be Empty!"
-        },
-        isAlpha: {
-          msg: "Description must be without number!"
         }
       }
     },
