@@ -1,2 +1,2 @@
 # zenqu-tech
-this is edutech pair project
+Pair Project ini dikerjakan semaksimal mungkin
