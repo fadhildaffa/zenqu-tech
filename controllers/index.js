@@ -30,10 +30,12 @@ class Controller{
     static async postLogin(req, res){
         try {
         const {email, password} = req.body; 
-        const find = await User.findOne({where: {email}});
-        if(find){
-            const isPasswordTrue = bcrypt.compareSync(password, find.password);
+        const user = await User.findOne({where: {email}});
+        if(user){
+            const isPasswordTrue = bcrypt.compareSync(password, user.password);
             if(isPasswordTrue){
+                req.session.role = user.role;
+                req.session.UserId = user.id;
                 res.redirect('/');
             }else{
                 const error = "invalid username/password";
@@ -47,6 +49,17 @@ class Controller{
             console.log(error);
             res.send(error.message);
         }
+    }
+
+    static getLogout (req, res){
+        req.session.destroy((err) =>{
+            if(err) {
+            res.send(err);
+        }
+            else{
+        res.redirect('/login');
+        }
+        })
     }
 }
 
