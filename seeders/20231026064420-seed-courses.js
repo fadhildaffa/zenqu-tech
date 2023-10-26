@@ -16,12 +16,10 @@ module.exports = {
     const courses = require("../data/courses.json");
     courses.forEach((el) => {
       el.createdAt = el.updatedAt = new Date();
-    })
-
-    await queryInterface.bulkInsert("Courses", courses, {
-      truncate: true,
-      restartIdentity: true,
     });
+
+    await queryInterface.bulkInsert("Courses", courses);
+
   },
 
   async down (queryInterface, Sequelize) {
@@ -32,6 +30,9 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
 
-    await queryInterface.bulkDelete("Courses", null);
+    await queryInterface.bulkDelete("Courses", null, {
+      truncate: true,
+      restartIdentity: true,
+    });
   }
 };

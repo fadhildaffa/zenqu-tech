@@ -2,6 +2,7 @@ const Controller = require('../controllers');
 
 const router = require('express').Router();
 
+router.get('/', Controller.landing);
 
 router.get('/register', Controller.registerForm);
 
@@ -10,6 +11,7 @@ router.post('/register', Controller.postRegister);
 router.get('/login', Controller.login);
 
 router.post('/login', Controller.postLogin);
+
 router.get('/logout', Controller.getLogout);
 
 router.use(function (req, res, next) {
@@ -30,7 +32,6 @@ const isRole = function (req, res, next) {
 };
 
 
-router.get('/', Controller.home);
 
 router.get("/home", Controller.home);   //ke home dg data kategori
 

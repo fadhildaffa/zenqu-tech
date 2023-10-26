@@ -37,7 +37,6 @@ class Controller{
 
                 req.session.role = user.role;
                 req.session.UserId = user.id;
-                res.redirect('/');
 
                 res.redirect('/home'); //ke class page
             }else{
@@ -60,12 +59,11 @@ class Controller{
             const categories = await Category.findAll({
                 include: {
                     model: Course,
-                    attributes: ["title", "description", "CategoryId"]  
+                    attributes: ["id", "title", "description", "CategoryId"]  
                 }
             })
+           
             res.render("home", {categories});
-            // res.json(categories);
-            // console.log(categories)
         } catch (error) {
             console.log(error);
             res.send(error.message);
@@ -76,6 +74,7 @@ class Controller{
     static async coursePage(req, res){
      try {
         const {id} = req.params;
+        
         const course = await Course.findByPk(id);
         res.render("coursePage", {course});
         
@@ -90,13 +89,22 @@ class Controller{
     
     static async deleteCourse(req, res){
         try {
-            // console.log(CategoryId, CourseId)
             await Course.destroy({where: {id: req.params.id}});
             res.redirect("/home");
         } catch (error) {
             console.log(error);
             res.send(error.message);
         }
+    }
+
+    static getLogout(req, res){
+        req.session.destroy((err) => {
+            if(err){
+                console.log(err)
+            }else{
+                res.redirect('/login');
+            }
+        });
     }
 
 }
