@@ -1,6 +1,11 @@
 const { User } = require('../models');
 const bcrypt = require('bcryptjs');
-class UserController{
+
+class Controller{
+
+    static home(req, res){
+        res.render("home");
+    }
 
     static registerForm(req, res){
         res.render('registerpage');
@@ -45,4 +50,4 @@ class UserController{
     }
 }
 
-module.exports = UserController;
+module.exports = Controller;
