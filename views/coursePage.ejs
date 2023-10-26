@@ -32,14 +32,14 @@
     
 
     <div class="ratio ratio-4x3">
-        <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" class="d-flex justify-content-center"></iframe>
+        <iframe src="<%= course.videoUrl %>" class="d-flex justify-content-center"></iframe>
       </div>
 
       <div class="card mb-3">
         <div class="card-body">
           <h5 class="card-title"><%= course.title %></h5>
           <p class="card-text"><%= course.description %></p>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+          <p class="card-text"><small class="text-body-secondary">Duration: <%= course.formatDuration %> Minutes</small></p>
         </div>
       </div>
 

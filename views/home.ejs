@@ -32,6 +32,12 @@
       </nav>
       <br><br>
     
+
+    <% if (CourseTitle && CourseDesc) { %>
+     <span style="color: red;"> Course with Title "<%= CourseTitle %>" and description "<%= CourseDesc %>" has ben deleted</span>
+    <% } %>
+    <br><br>
+
     <% categories.forEach(({category, Courses}) => { %>
         <div class="card">
             <div class="card-header">
@@ -45,7 +51,7 @@
                     <div class="d-flex justify-content-evenly">
                       <a href="/course/<%= co.id %>" class="btn btn-primary">See Course</a>
                       <br>
-                      <a href="/course/<%= co.id %>" class="btn btn-primary">Edit Course</a>
+                      <a href="/course/edit/<%= co.id %>" class="btn btn-primary">Edit Course</a>
                       <br>
                       <a href="/course/delete/<%= co.id %>" class="btn btn-primary">Delete Course</a>
                     </div>

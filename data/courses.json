@@ -2,7 +2,7 @@
     {
         "title": "Apa Itu Ilmu Biologi",
         "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.",
-        "duration": 11,
+        "duration": 660,
         "CategoryId": 1,
         "InstructorId": 3,
         "videoUrl": "https://www.youtube.com/watch?v=CrlVgxuaTWk"
@@ -10,7 +10,7 @@
     {
         "title": "Apa Itu Ilmu Fisika",
         "description": " Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-        "duration": 17,
+        "duration": 1020,
         "CategoryId": 2,
         "InstructorId": 2,
         "videoUrl": "https://www.youtube.com/watch?v=4HrweW4IqJc"
@@ -18,7 +18,7 @@
     {
         "title": "Apa Itu Ilmu Kimia",
         "description": "Donec vitae nisi. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.\n\nCurabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",
-        "duration": 108,
+        "duration": 6480,
         "CategoryId": 3,
         "InstructorId": 1,
         "videoUrl": "https://www.youtube.com/watch?v=WAE3-XPclE4"

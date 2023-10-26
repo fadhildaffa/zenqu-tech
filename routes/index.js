@@ -37,9 +37,9 @@ router.get("/home", Controller.home);   //ke home dg data kategori
 
 router.get("/course/:id", Controller.coursePage); // ke home dengan detail course, video
 
-// router.get("/course/edit/:id", Controller.editForm);
+router.get("/course/edit/:id", Controller.editForm);    //ke form edit
 
-// router.get("/course/edit/:id", Controller.editCourse);
+router.post("/course/edit/:id", Controller.updateForm);
 
 router.get("/course/delete/:id", Controller.deleteCourse);
 
