@@ -23,9 +23,13 @@
                 <a class="nav-link" href="/logout">Log Out</a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+            <form action="" method="get">    
+              <div class="input-group border rounded-pill p-2">
+                <input type="text" name="search" class="form-control border-0" placeholder="Cari post..." style="border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-right: none; border-width: 2px;">
+                <div class="input-group-append">
+                  <input type="submit" class="btn btn-primary rounded-pill" style="border-radius: 20px; width: 100px; border-width: 2px;" value="Search" />
+                </div>
+              </div>
             </form>
           </div>
         </div>
@@ -38,12 +42,12 @@
     <% } %>
     <br><br>
 
-    <% categories.forEach(({category, Courses}) => { %>
+    <% categories.forEach(({category, Course}) => { %>
         <div class="card">
             <div class="card-header">
               <h3 class="card-title"><%= category %></h3>
             </div>
-            <% Courses.forEach(co => { %>
+            <% Course.forEach(co => { %>
                 <div class="card-body">
                     <h5 class="card-title"><%= co.title %></h5>
                     <p class="card-text"><%= co.description %></p>

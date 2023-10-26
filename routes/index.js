@@ -24,7 +24,7 @@ router.use(function (req, res, next) {
 });
 const isRole = function (req, res, next) {
     if(req.session.role === "instructor"){
-        next()
+        next();
     }else{
         const error = "You have no acces";
         res.redirect(`/login?error=${error}`);
@@ -37,11 +37,11 @@ router.get("/home", Controller.home);   //ke home dg data kategori
 
 router.get("/course/:id", Controller.coursePage); // ke home dengan detail course, video
 
-router.get("/course/edit/:id", Controller.editForm);    //ke form edit
+router.get("/course/edit/:id", isRole, Controller.editForm);    //ke form edit
 
-router.post("/course/edit/:id", Controller.updateForm);
+router.post("/course/edit/:id", isRole, Controller.updateForm);
 
-router.get("/course/delete/:id", Controller.deleteCourse);
+router.get("/course/delete/:id", isRole, Controller.deleteCourse);
 
 
 

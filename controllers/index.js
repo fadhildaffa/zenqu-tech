@@ -1,4 +1,5 @@
 const { Category, Course, User } = require('../models');
+const { Op } = require("sequelize");
 const bcrypt = require('bcryptjs');
 
 class Controller{
@@ -56,15 +57,9 @@ class Controller{
 
     static async home(req, res){
         const {CourseTitle, CourseDesc} = req.query;
-
+        const { search } = req.query; 
         try {
-            const categories = await Category.findAll({
-                include: {
-                    model: Course,
-                    attributes: ["id", "title", "description", "CategoryId"]  
-                }
-            })
-           
+            const categories = await Category.searchByName(search);
             res.render("home", {categories, CourseTitle, CourseDesc});
         } catch (error) {
             console.log(error);

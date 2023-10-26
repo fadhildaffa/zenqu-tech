@@ -3,6 +3,7 @@ const {
   Model
 } = require('sequelize');
 const helper = require('../helper');
+
 module.exports = (sequelize, DataTypes) => {
   class Course extends Model {
     /**
@@ -20,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     get formatDuration(){
       return helper.formattedMinutes(this.duration);
     }
+
 
   }
   Course.init({

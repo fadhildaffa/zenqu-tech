@@ -1,6 +1,6 @@
 'use strict';
 const {
-  Model
+  Model, Op
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Category extends Model {
@@ -12,9 +12,36 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Category.belongsTo(models.User, {foreignKey: "InstructorId"});
-      Category.hasMany(models.Course);
+      Category.hasMany(models.Course, {as: "Course"});
     }
+
+    static async searchByName(val){
+      let categories = await Category.findAll({
+        include: {
+                  association: "Course",
+                  attributes: ["id", "title", "description", "CategoryId"]  
+              }
+      });
+      if(val){
+        categories = await Category.findAll({
+          where:{
+            category:{
+              [Op.iLike] : `%${val}%`
+            }
+          },
+          include: {
+                    association: "Course",
+                    attributes: ["id", "title", "description", "CategoryId"]  
+                }
+        })
+      }
+
+      return categories;
+    }
+
   }
+
+
   Category.init({
     category: DataTypes.STRING,
     InstructorId: DataTypes.INTEGER
