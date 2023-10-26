@@ -30,10 +30,15 @@ class Controller{
     static async postLogin(req, res){
         try {
         const {email, password} = req.body; 
-        const find = await User.findOne({where: {email}});
-        if(find){
-            const isPasswordTrue = bcrypt.compareSync(password, find.password);
+        const user = await User.findOne({where: {email}});
+        if(user){
+            const isPasswordTrue = bcrypt.compareSync(password, user.password);
             if(isPasswordTrue){
+
+                req.session.role = user.role;
+                req.session.UserId = user.id;
+                res.redirect('/');
+
                 res.redirect('/home'); //ke class page
             }else{
                 const error = "invalid username/password";
@@ -73,7 +78,7 @@ class Controller{
         const {id} = req.params;
         const course = await Course.findByPk(id);
         res.render("coursePage", {course});
-        // res.json(course);
+        
      } catch (error) {
         console.log(error);
         res.send(error.message);
