@@ -80,10 +80,18 @@ class Controller{
     }
 
     static async editForm(req, res){
+        const {errors} = req.query;
+        let err;
+
+        if(errors){
+            err = errors.split(',');
+            console.log(err);
+        }
+
         try {
             const {id} = req.params;
             const course = await Course.findByPk(id);
-            res.render("editForm", {course});
+            res.render("editForm", {course, err});
         } catch (error) {
             console.log(error);
             res.send(error.message);
@@ -91,8 +99,9 @@ class Controller{
     }
 
     static async updateForm(req, res){
+        const {id} = req.params;
+        
         try {
-            const {id} = req.params;
             const {title, duration, description, CategoryId, InstructorId, videoUrl} = req.body;
             await Course.update({title, duration, description, CategoryId, InstructorId, videoUrl}, 
                 {where: 
@@ -100,8 +109,15 @@ class Controller{
                 });
             res.redirect("/home");
         } catch (error) {
-            console.log(error);
-            res.send(error.message);
+            if(error.name === "SequelizeValidationError"){
+                let errors = error.errors.map((er) => {
+                 return er.message
+                }); 
+                // res.send(errors);
+                res.redirect(`/course/edit/${id}?errors=${errors}`); 
+             } else {
+                 res.send(error);
+             }
         }
     }
     
