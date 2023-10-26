@@ -1,0 +1,42 @@
+[
+    {
+        "courseName": "Honorable",
+        "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.",
+        "duration": 11,
+        "CategoryId": 1,
+        "InstructorId": 1,
+        "UserId": 1
+    },
+    {
+        "courseName": "Mr",
+        "description": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+        "duration": 17,
+        "CategoryId": 2,
+        "InstructorId": 2,
+        "UserId": 2
+    },
+    {
+        "courseName": "Ms",
+        "description": "Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.\n\nNam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.\n\nCurabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",
+        "duration": 108,
+        "CategoryId": 3,
+        "InstructorId": 3,
+        "UserId": 3
+    },
+    {
+        "courseName": "Honorable",
+        "description": "Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.",
+        "duration": 22,
+        "CategoryId": 4,
+        "InstructorId": 3,
+        "UserId": 4
+    },
+    {
+        "courseName": "Dr",
+        "description": "Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.\n\nSed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.\n\nPellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.",
+        "duration": 20,
+        "CategoryId": 5,
+        "InstructorId": 1,
+        "UserId": 5
+    }
+]

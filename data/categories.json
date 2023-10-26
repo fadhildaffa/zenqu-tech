@@ -1,0 +1,14 @@
+[
+    {
+        "category": "Biologi",
+        "InstructorId": 1
+    },
+    {
+        "category": "Fisika",
+        "InstructorId": 2
+    },
+    {
+        "category": "Kimia",
+        "InstructorId": 3
+    }
+]
