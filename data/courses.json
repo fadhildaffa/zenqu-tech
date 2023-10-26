@@ -1,6 +1,6 @@
 [
     {
-        "courseName": "Apa Itu Ilmu Biologi",
+        "title": "Apa Itu Ilmu Biologi",
         "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.",
         "duration": 11,
         "CategoryId": 1,
@@ -8,16 +8,16 @@
         "videoUrl": "https://www.youtube.com/watch?v=CrlVgxuaTWk"
     },
     {
-        "courseName": "Apa Itu Ilmu Fisika",
-        "description": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+        "title": "Apa Itu Ilmu Fisika",
+        "description": " Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
         "duration": 17,
         "CategoryId": 2,
         "InstructorId": 2,
         "videoUrl": "https://www.youtube.com/watch?v=4HrweW4IqJc"
     },
     {
-        "courseName": "Apa Itu Ilmu Kimia",
-        "description": "Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.\n\nNam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.\n\nCurabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",
+        "title": "Apa Itu Ilmu Kimia",
+        "description": "Donec vitae nisi. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.\n\nCurabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",
         "duration": 108,
         "CategoryId": 3,
         "InstructorId": 1,
