@@ -12,17 +12,14 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-
-
     const categories = require("../data/categories.json");
     categories.forEach((el) => {
       el.createdAt = el.updatedAt = new Date();
-    })
-
-    await queryInterface.bulkInsert("Categories", categories, {
-      truncate: true,
-      restartIdentity: true,
     });
+
+    await queryInterface.bulkInsert("Categories", categories);
+
+    
   },
 
   async down (queryInterface, Sequelize) {
@@ -34,6 +31,9 @@ module.exports = {
      * 
      */
   
-    await queryInterface.bulkDelete("Categories", null);
+    await queryInterface.bulkDelete("Categories", null, {
+      truncate: true,
+      restartIdentity: true,
+    });
   }
 };
