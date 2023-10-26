@@ -1,7 +1,7 @@
 [
     {
         "category": "Biologi",
-        "InstructorId": 1
+        "InstructorId": 3
     },
     {
         "category": "Fisika",
@@ -9,6 +9,6 @@
     },
     {
         "category": "Kimia",
-        "InstructorId": 3
+        "InstructorId": 1
     }
 ]

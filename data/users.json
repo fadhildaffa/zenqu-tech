@@ -1,39 +1,18 @@
 [
     {
-        "fullName": "Dory Ardy",
         "email": "dardy1@webeden.co.uk",
         "password": "cD42tV",
-        "role": "Instructor"
+        "role": "instructor"
     },
     {
-        "fullName": "Vincenz Asquez",
         "email": "vasquez3@dropbox.com",
-        "password": "wI7RDB&",
-        "role": "Instructor"
+        "password": "wI7RgB9",
+        "role": "instructor"
     },
     {
-        "fullName": "Lynnett Grgic",
         "email": "glynnett@sogou.com",
         "password": "3wertB",
-        "role": "Instructor"
-    },
-    {
-        "fullName": "Yankee Martill",
-        "email": "ymartill0@sourceforge.net",
-        "password": "hU06QYL",
-        "role": "Student"
-    },
-    {
-        "fullName": "Gianina Guntrip",
-        "email": "gguntrip2@china.com.cn",
-        "password": "rE80P",
-        "role": "Student"
-    },
-    {
-        "fullName": "Jimmy Eason",
-        "email": "jeason4@sogou.com",
-        "password": "qF8s6",
-        "role": "Student"
+        "role": "instructor"
     }
 ]
 
